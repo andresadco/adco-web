@@ -442,6 +442,11 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 </div></footer>
 <script>
 (function(){
+  document.querySelectorAll('.cover video').forEach(function(v){
+    v.muted=true;v.defaultMuted=true;
+    function go(){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+    go();['touchstart','click','scroll'].forEach(function(t){window.addEventListener(t,go,{once:true,passive:true})});
+  });
   var bar=document.querySelector('.bar'),cover=document.querySelector('.cover');
   function onScroll(){var lim=cover?cover.offsetHeight-90:10;bar.classList.toggle('solid',window.scrollY>lim)}
   if(bar){if(!cover)bar.classList.add('solid');window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
