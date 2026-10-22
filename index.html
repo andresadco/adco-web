@@ -259,7 +259,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--i
 @media (max-width:860px){.listing{display:block}.listing .info{margin:-56px 14px 0;}}
 
 /* En desarrollo: fichas en burdeos */
-.dev{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(70px,9vw,120px)}
+.dev{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(70px,9vw,120px)}
 .dev-card{position:relative;background:var(--wine-bg);color:var(--wine-ink);padding:clamp(30px,4vw,56px);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:18px;min-width:0;overflow:hidden}
 .dev-card::after{content:"";position:absolute;inset:10px;border:1px solid rgba(244,233,226,.22);pointer-events:none}
 .dev-card .top{display:flex;justify-content:space-between;align-items:center;gap:16px}
@@ -273,6 +273,17 @@ input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--i
 .dev-card .bottom span{font-family:var(--display);font-size:24px}
 .dev-card .more{color:var(--wine-ink);position:relative;z-index:1}
 @media (max-width:860px){.dev{grid-template-columns:1fr}}
+
+/* Servicios */
+.serv-intro{font-family:var(--display);font-size:clamp(22px,2vw,28px);line-height:1.45;max-width:46ch;margin:-20px 0 clamp(44px,6vw,72px)}
+.serv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
+.serv article{position:relative;background:var(--card);box-shadow:var(--shadow);padding:clamp(30px,4vw,54px);border-top:3px solid var(--wine-bg);min-width:0}
+.serv h3{font-size:clamp(34px,3.2vw,46px);font-weight:300;margin-bottom:16px}
+.serv p{color:var(--soft)}
+.serv ul{list-style:none;margin:24px 0 0;padding:20px 0 0;border-top:1px solid var(--line);display:grid;gap:10px}
+.serv li{display:flex;gap:12px;align-items:baseline;font-size:15.5px}
+.serv li::before{content:"";flex:none;width:7px;height:7px;border:1px solid var(--blue);border-radius:50%;transform:translateY(-1px)}
+@media (max-width:860px){.serv{grid-template-columns:1fr}}
 
 /* Cómo trabajamos */
 .how{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,64px)}
@@ -314,7 +325,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <body>
 <header class="bar"><div class="wrap">
 <a class="logo" href="#inicio" aria-label="ADCO Investments, inicio"><img class="lt" src="img/logo-adco-claro.png" alt="ADCO Investments" width="1020" height="450"><img class="dk" src="img/logo-adco.png" alt="" width="1020" height="450"></a>
-<nav class="nav lbl" aria-label="Secciones"><a href="#viviendas">Viviendas</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></nav>
+<nav class="nav lbl" aria-label="Secciones"><a href="#viviendas">Viviendas</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></nav>
 <a class="btn lbl" href="#contacto"><span>Reservar visita</span></a>
 </div></header>
 <div class="cover" id="inicio">
@@ -332,9 +343,10 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div>
 <p class="big">Compramos pisos en edificios clásicos de las mejores zonas de Madrid, de Salamanca y Almagro a Malasaña y Las Letras, y los reformamos por completo. <em>Conservamos lo que los hace únicos</em> y hacemos a medida todo lo demás.</p>
 <div class="tally">
-<div><b>6</b><span>proyectos</span></div>
-<div><b>5</b><span>barrios prime</span></div>
-<div><b>5</b><span>viviendas a la venta</span></div>
+<div><b>+100 M€</b><span>en activos gestionados</span></div>
+<div><b>10</b><span>años de experiencia</span></div>
+<div><b>6</b><span>proyectos en curso</span></div>
+<div><b>5</b><span>barrios prime de Madrid</span></div>
 </div>
 </div>
 </div>
@@ -387,7 +399,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div class="bottom"><span class="price">890.000 €</span><a class="more" href="huertas-4.html">Descubrir</a></div>
 </div>
 </article>
-<div class="sec-head" style="margin-top:clamp(90px,11vw,160px);margin-bottom:0"><div><span class="lbl kicker">En desarrollo</span><h2>Próximos <em>proyectos</em></h2></div></div>
+<div class="sec-head" style="margin-top:clamp(90px,11vw,160px);margin-bottom:0"><div><span class="lbl kicker">En curso</span><h2>En <em>obra</em></h2></div></div>
 <div class="dev" style="margin-top:clamp(40px,5vw,64px)"><article class="dev-card">
 <div class="top"><span class="lbl">Almagro · Madrid</span><span class="chip">En obra</span></div>
 <h3>Francisco de Rojas 11<em>Edificio catalogado</em></h3>
@@ -396,13 +408,23 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div class="bottom"><span>Próximamente</span><a class="more" href="#contacto">Pedir información</a></div>
 </article></div>
 </div></section>
+<section id="servicios"><div class="wrap">
+<div class="sec-head"><div><span class="lbl kicker">Servicios</span><h2>Mucho más que <em>vender casas</em></h2></div><a class="btn solid" href="#contacto">Hablemos</a></div>
+<p class="serv-intro">Llevamos diez años comprando, reformando y vendiendo vivienda en el centro de Madrid. Esa misma experiencia la ponemos al servicio de quien quiere comprar su casa, invertir o llegar a Madrid desde fuera.</p>
+<div class="serv">
+<article><span class="lbl kicker">Para vivir</span><h3>Venta de <em>viviendas</em></h3><p>Pisos reformados por completo en las mejores zonas de Madrid, listos para entrar a vivir. Te enseñamos cada casa con calma y te acompañamos hasta la firma.</p><ul><li>Cartera propia en Salamanca, Almagro, Malasaña, Palacio y Las Letras</li><li>Dossier, planos y ficha técnica de cada vivienda</li><li>Acompañamiento en la negociación y la firma</li></ul></article>
+<article><span class="lbl kicker">Para invertir</span><h3>Inversión <em>inmobiliaria</em></h3><p>Proyectos residenciales prime de valor añadido para inversores privados y family offices: compramos, reformamos y vendemos, y tú participas en el proyecto.</p><ul><li>Estructura por proyecto, transparente y con control</li><li>Seguimiento de obra y reportes periódicos</li><li>Más de 100 M€ en activos gestionados</li></ul></article>
+<article><span class="lbl kicker">Llave en mano</span><h3>Búsqueda y reforma <em>a medida</em></h3><p>Buscamos el piso que necesitas, negociamos la compra y lo reformamos con nuestro equipo de arquitectura y obra. Tú solo eliges acabados.</p><ul><li>Búsqueda en el mercado y fuera de él</li><li>Proyecto, licencias y dirección de obra</li><li>Carpintería a medida, suelos de roble y materiales nobles</li></ul></article>
+<article><span class="lbl kicker">Desde fuera de España</span><h3>Cliente <em>internacional</em></h3><p>Si compras desde México o desde cualquier otro país, te acompañamos en todo el proceso para que la operación sea sencilla y eficiente.</p><ul><li>Entrada del capital en España</li><li>Estrategia fiscal de la operación, incluido el régimen de impatriados (Ley Beckham)</li><li>Coordinación con notaría, gestoría y bancos</li></ul></article>
+</div>
+</div></section>
 <div class="band"><img src="img/fuentes-3/volumenes-roble.jpg" alt="" loading="lazy"><div class="wrap"><svg class="rings" viewBox="0 0 46 34" aria-hidden="true"><circle class="a" cx="17" cy="17" r="15.5"/><circle class="a" cx="17" cy="17" r="10"/><circle class="b" cx="22" cy="17" r="11.5"/></svg><blockquote>Balcones, chimeneas y rosetones se quedan. Lo demás lo hacemos a medida, en roble y piedra.</blockquote></div></div>
 <section class="night" id="nosotros"><div class="wrap">
 <div class="sec-head"><div><span class="lbl kicker">Cómo trabajamos</span><h2>Del edificio clásico <em>a la casa terminada</em></h2></div></div>
 <div class="how">
 <div><svg class="rings" viewBox="0 0 46 34" aria-hidden="true"><circle class="a" cx="17" cy="17" r="15.5"/><circle class="a" cx="17" cy="17" r="10"/><circle class="b" cx="22" cy="17" r="11.5"/></svg><h3>Elegimos la finca</h3><p>Buscamos pisos con estructura y fachada que merezcan la pena: balcones a la calle, techos altos y buena luz, en Salamanca, Almagro, Malasaña, Palacio y Las Letras.</p></div>
 <div><svg class="rings" viewBox="0 0 46 34" aria-hidden="true"><circle class="a" cx="17" cy="17" r="15.5"/><circle class="a" cx="17" cy="17" r="10"/><circle class="b" cx="22" cy="17" r="11.5"/></svg><h3>Reformamos a fondo</h3><p>Proyecto integral con carpintería a medida, suelos de roble y baños y cocinas nuevos, conservando los elementos originales que dan carácter a cada casa.</p></div>
-<div><svg class="rings" viewBox="0 0 46 34" aria-hidden="true"><circle class="a" cx="17" cy="17" r="15.5"/><circle class="a" cx="17" cy="17" r="10"/><circle class="b" cx="22" cy="17" r="11.5"/></svg><h3>Te acompañamos</h3><p>Desde la visita hasta la firma. Si compras desde el extranjero, te ayudamos también con la entrada del capital y la estrategia fiscal de la operación.</p></div>
+<div><svg class="rings" viewBox="0 0 46 34" aria-hidden="true"><circle class="a" cx="17" cy="17" r="15.5"/><circle class="a" cx="17" cy="17" r="10"/><circle class="b" cx="22" cy="17" r="11.5"/></svg><h3>Te acompañamos</h3><p>Desde la primera visita hasta la firma, con un solo interlocutor. Diez años haciendo lo mismo: casas bien hechas y operaciones claras.</p></div>
 </div>
 </div></section>
 <section class="contact" id="contacto">
@@ -422,6 +444,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <h3>Reservar una visita</h3>
 <p class="note">Se abre WhatsApp con tu mensaje ya escrito; solo tienes que enviarlo.</p>
 <form id="cita" novalidate>
+<label for="f-motivo">Me interesa<select id="f-motivo" name="motivo"><option>Comprar una vivienda</option><option>Invertir en un proyecto</option><option>Búsqueda y reforma a medida</option><option>Comprar desde el extranjero</option></select></label>
 <label for="f-piso">Vivienda<select id="f-piso" name="piso"><option selected>vuestras viviendas (aún no sé cuál)</option><option>Alcántara 6, Edificio modernista</option><option>Valverde 35, 3º izquierda</option><option>Valverde 35, 4º derecha</option><option>Fuentes 3, 2º D · Dúplex</option><option>Huertas 4, 1º C</option><option>Francisco de Rojas 11 (en obra)</option></select></label>
 <div class="row2">
 <label for="f-nombre">Nombre<input id="f-nombre" name="nombre" autocomplete="name" placeholder="Tu nombre"></label>
@@ -479,8 +502,8 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
   var f=document.getElementById('cita'),wa=document.getElementById('wa');
   if(f&&wa){
     function build(){
-      var n=f.nombre.value.trim(),t=f.tel.value.trim(),p=f.piso.value,d=f.dia.value,m=f.msg.value.trim();
-      var txt='Hola, soy '+(n||'[nombre]')+'. Me interesa '+p+'.'+(m?' '+m:'')+' Disponibilidad: '+d+'.'+(t?' Mi teléfono: '+t+'.':'');
+      var n=f.nombre.value.trim(),t=f.tel.value.trim(),p=f.piso.value,d=f.dia.value,m=f.msg.value.trim(),mo=f.motivo.value;
+      var txt='Hola, soy '+(n||'[nombre]')+'. Me interesa: '+mo.toLowerCase()+' ('+p+').'+(m?' '+m:'')+' Disponibilidad: '+d+'.'+(t?' Mi teléfono: '+t+'.':'');
       wa.href='https://wa.me/34617795058?text='+encodeURIComponent(txt);
     }
     f.addEventListener('input',build);f.addEventListener('change',build);f.addEventListener('submit',function(ev){ev.preventDefault()});build();
