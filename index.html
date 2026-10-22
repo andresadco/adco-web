@@ -97,7 +97,8 @@ section{padding-block:clamp(80px,11vw,150px)}
 
 /* Portada a sangre */
 .cover{position:relative;height:clamp(560px,92vh,940px);overflow:hidden;background:#0E1013;color:#F4F1EB}
-.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:drift 22s ease-out both}
+.cover>img,.cover>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover>img{animation:drift 22s ease-out both}
 @keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
 .cover::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,12,15,.55) 0%,rgba(10,12,15,0) 28%,rgba(10,12,15,0) 45%,rgba(10,12,15,.72) 100%)}
 .cover .in{position:absolute;inset:auto 0 0;z-index:2}
@@ -132,6 +133,11 @@ section{padding-block:clamp(80px,11vw,150px)}
 .intro .body p:first-child{font-family:var(--display);font-size:clamp(23px,2vw,28px);line-height:1.45;color:var(--ink);font-weight:400}
 .intro .body p+p{margin-top:22px}
 @media (max-width:860px){.intro{grid-template-columns:1fr}}
+
+/* Vídeo del recorrido */
+.tourbox{position:relative;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.tourbox::after{content:"";position:absolute;inset:-14px;border:1px solid var(--night-line);pointer-events:none}
+.tourbox video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 
 /* Fotos con marco fino desplazado */
 .frame{position:relative}
@@ -309,7 +315,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <a class="btn lbl" href="#contacto"><span>Reservar visita</span></a>
 </div></header>
 <div class="cover" id="inicio">
-<img src="img/valverde-35-3-izq/salon-chimenea.jpg" alt="Salón de Valverde 35 con chimenea de mármol y balcones">
+<video autoplay muted loop playsinline preload="auto" poster="img/alcantara-6/poster.jpg" aria-label="Vídeo de Alcántara 6, Edificio modernista"><source src="img/alcantara-6/portada.mp4" type="video/mp4"></video>
 <div class="in"><div class="wrap">
 <span class="lbl kicker">ADCO Investments · Madrid</span>
 <h1>Casas con historia,<br><em>hechas de nuevo</em></h1>
@@ -333,6 +339,15 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <section class="stone" id="viviendas"><div class="wrap">
 <div class="sec-head"><div><span class="lbl kicker">A la venta</span><h2>Nuestras <em>viviendas</em></h2></div></div>
 <article class="listing">
+<a class="pic" href="alcantara-6.html" aria-label="Ver Alcántara 6, Edificio modernista"><img src="img/alcantara-6/salon-libreria.jpg" alt="Alcántara 6, Edificio modernista" loading="lazy"></a>
+<div class="info">
+<span class="lbl where">Salamanca · Madrid</span>
+<h3>Alcántara 6<em>Edificio modernista</em></h3>
+<p class="tagline">Una casa modernista de Luis Vidal Tuason, con mármol, nogal y luz de balcón en el barrio de Salamanca.</p>
+<div class="facts"><span>280 m² </span><span>3 dormitorios</span><span>3 baños</span></div>
+<div class="bottom"><span class="price">Precio a consultar</span><a class="more" href="alcantara-6.html">Descubrir</a></div>
+</div>
+</article><article class="listing rev">
 <a class="pic" href="valverde-35-3-izq.html" aria-label="Ver Valverde 35, 3º izquierda"><img src="img/valverde-35-3-izq/salon-balcones.jpg" alt="Valverde 35, 3º izquierda" loading="lazy"></a>
 <div class="info">
 <span class="lbl where">Malasaña · Madrid</span>
@@ -341,7 +356,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div class="facts"><span>301 m² </span><span>3 dormitorios</span><span>4 baños</span></div>
 <div class="bottom"><span class="price">2.900.000 €</span><a class="more" href="valverde-35-3-izq.html">Descubrir</a></div>
 </div>
-</article><article class="listing rev">
+</article><article class="listing">
 <a class="pic" href="valverde-35-4-dcha.html" aria-label="Ver Valverde 35, 4º derecha"><img src="img/valverde-35-4-dcha/salon-balcones.jpg" alt="Valverde 35, 4º derecha" loading="lazy"></a>
 <div class="info">
 <span class="lbl where">Malasaña · Madrid</span>
@@ -350,7 +365,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div class="facts"><span>189 m² </span><span>3 dormitorios</span><span>4 baños</span></div>
 <div class="bottom"><span class="price">1.900.000 €</span><a class="more" href="valverde-35-4-dcha.html">Descubrir</a></div>
 </div>
-</article><article class="listing">
+</article><article class="listing rev">
 <a class="pic" href="fuentes-3.html" aria-label="Ver Fuentes 3, 2º D · Dúplex"><img src="img/fuentes-3/salon-balcones.jpg" alt="Fuentes 3, 2º D · Dúplex" loading="lazy"></a>
 <div class="info">
 <span class="lbl where">Palacio · Madrid</span>
@@ -359,7 +374,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div class="facts"><span>170 m² </span><span>2 dormitorios</span><span>3 baños</span></div>
 <div class="bottom"><span class="price">1.590.000 €</span><a class="more" href="fuentes-3.html">Descubrir</a></div>
 </div>
-</article><article class="listing rev">
+</article><article class="listing">
 <a class="pic" href="huertas-4.html" aria-label="Ver Huertas 4, 1º C"><img src="img/huertas-4/salon-comedor.jpg" alt="Huertas 4, 1º C" loading="lazy"></a>
 <div class="info">
 <span class="lbl where">Las Letras · Madrid</span>
@@ -371,12 +386,6 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 </article>
 <div class="sec-head" style="margin-top:clamp(90px,11vw,160px);margin-bottom:0"><div><span class="lbl kicker">En desarrollo</span><h2>Próximos <em>proyectos</em></h2></div></div>
 <div class="dev" style="margin-top:clamp(40px,5vw,64px)"><article class="dev-card">
-<div class="top"><span class="lbl">Salamanca · Madrid</span><span class="chip">A la venta</span></div>
-<h3>Alcántara 6<em>Edificio modernista de Luis Vidal Tuason</em></h3>
-<p>Levantado en pleno apogeo del modernismo madrileño por el arquitecto Luis Vidal Tuason, el edificio guarda su fachada ornamentada, sus zonas comunes de época y las ventanas originales que asoman al pasillo. Dentro espera una casa nueva, con techos altos, molduras clásicas y estancias que se abren unas a otras. Es vivir dentro de más de un siglo de historia de Madrid.</p>
-<div class="facts"><span>280 m²</span><span>3 dormitorios</span><span>3 baños</span><span>Despacho</span></div>
-<div class="bottom"><span>Precio a consultar</span><a class="more" href="#contacto">Pedir información</a></div>
-</article><article class="dev-card">
 <div class="top"><span class="lbl">Almagro · Madrid</span><span class="chip">En obra</span></div>
 <h3>Francisco de Rojas 11<em>Edificio catalogado</em></h3>
 <p>Reforma integral de una vivienda en un edificio protegido entre Almagro y Chamberí. Escríbenos para conocerla antes de su lanzamiento.</p>
@@ -410,7 +419,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <h3>Reservar una visita</h3>
 <p class="note">Se abre WhatsApp con tu mensaje ya escrito; solo tienes que enviarlo.</p>
 <form id="cita" novalidate>
-<label for="f-piso">Vivienda<select id="f-piso" name="piso"><option selected>vuestras viviendas (aún no sé cuál)</option><option>Valverde 35, 3º izquierda</option><option>Valverde 35, 4º derecha</option><option>Fuentes 3, 2º D · Dúplex</option><option>Huertas 4, 1º C</option><option>Alcántara 6 (a la venta)</option><option>Francisco de Rojas 11 (en obra)</option></select></label>
+<label for="f-piso">Vivienda<select id="f-piso" name="piso"><option selected>vuestras viviendas (aún no sé cuál)</option><option>Alcántara 6, Edificio modernista</option><option>Valverde 35, 3º izquierda</option><option>Valverde 35, 4º derecha</option><option>Fuentes 3, 2º D · Dúplex</option><option>Huertas 4, 1º C</option><option>Francisco de Rojas 11 (en obra)</option></select></label>
 <div class="row2">
 <label for="f-nombre">Nombre<input id="f-nombre" name="nombre" autocomplete="name" placeholder="Tu nombre"></label>
 <label for="f-tel">Teléfono<input id="f-tel" name="tel" type="tel" autocomplete="tel" placeholder="+34"></label>
@@ -425,7 +434,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div class="top">
 <img src="img/logo-adco-claro.png" alt="ADCO Investments" width="1020" height="450">
 <div class="cols">
-<div><span class="lbl">Viviendas</span><a href="valverde-35-3-izq.html">Valverde 35 · 3º izquierda</a><a href="valverde-35-4-dcha.html">Valverde 35 · 4º derecha</a><a href="fuentes-3.html">Fuentes 3 · 2º D</a><a href="huertas-4.html">Huertas 4 · 1º C</a></div>
+<div><span class="lbl">Viviendas</span><a href="alcantara-6.html">Alcántara 6 · Edificio modernista</a><a href="valverde-35-3-izq.html">Valverde 35 · 3º izquierda</a><a href="valverde-35-4-dcha.html">Valverde 35 · 4º derecha</a><a href="fuentes-3.html">Fuentes 3 · 2º D</a><a href="huertas-4.html">Huertas 4 · 1º C</a></div>
 <div><span class="lbl">Contacto</span><p>+34 617 795 058</p><p>andres@adco.es</p><p>Antonio Maura 20, 1º dcha. · 28014 Madrid</p></div>
 </div>
 </div>

@@ -97,7 +97,8 @@ section{padding-block:clamp(80px,11vw,150px)}
 
 /* Portada a sangre */
 .cover{position:relative;height:clamp(560px,92vh,940px);overflow:hidden;background:#0E1013;color:#F4F1EB}
-.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:drift 22s ease-out both}
+.cover>img,.cover>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover>img{animation:drift 22s ease-out both}
 @keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
 .cover::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,12,15,.55) 0%,rgba(10,12,15,0) 28%,rgba(10,12,15,0) 45%,rgba(10,12,15,.72) 100%)}
 .cover .in{position:absolute;inset:auto 0 0;z-index:2}
@@ -132,6 +133,11 @@ section{padding-block:clamp(80px,11vw,150px)}
 .intro .body p:first-child{font-family:var(--display);font-size:clamp(23px,2vw,28px);line-height:1.45;color:var(--ink);font-weight:400}
 .intro .body p+p{margin-top:22px}
 @media (max-width:860px){.intro{grid-template-columns:1fr}}
+
+/* Vídeo del recorrido */
+.tourbox{position:relative;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.tourbox::after{content:"";position:absolute;inset:-14px;border:1px solid var(--night-line);pointer-events:none}
+.tourbox video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 
 /* Fotos con marco fino desplazado */
 .frame{position:relative}
@@ -326,6 +332,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div><span class="lbl kicker">La vivienda</span><h2>Un dúplex ordenado por la madera</h2></div>
 <div class="body"><p>Fuentes 3 es un dúplex de 170 m² en el barrio de Palacio, entre la calle Arenal y la calle Mayor. La planta principal se organiza con grandes volúmenes de roble que esconden la cocina, los armarios y el paso a la zona de noche.</p><p>Una escalera de piedra sube a la planta alta, donde el dormitorio principal tiene vestidor propio y un baño con doble lavabo.</p></div>
 </div></section>
+
 <section class="stone" id="estancias"><div class="wrap">
 <div class="room"><div class="frame"><div class="shots lead3"><button class="ph" type="button" data-g><img src="img/fuentes-3/salon-balcones.jpg" alt="Salón" loading="lazy"><figcaption>Salón</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/paneles-roble.jpg" alt="Roble y vidrio" loading="lazy"><figcaption>Roble y vidrio</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/salon.jpg" alt="Comedor" loading="lazy"><figcaption>Comedor</figcaption></button></div></div><div class="text"><span class="lbl kicker">Salón</span><h3>Balcones y bloques de roble</h3><p>El salón-comedor se abre a la calle con balcones de contraventana. Detrás, los volúmenes de roble con luz cenital ocultan la cocina y los armarios, y unas puertas de roble y vidrio comunican con el resto de la casa.</p></div></div><div class="room flip"><div class="frame"><div class="shots"><button class="ph" type="button" data-g><img src="img/fuentes-3/cocina.jpg" alt="Cocina" loading="lazy"><figcaption>Cocina</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/office-patio.jpg" alt="Office" loading="lazy"><figcaption>Office</figcaption></button></div></div><div class="text"><span class="lbl kicker">Cocina</span><h3>Una cocina lineal, de lado a lado</h3><p>Cocina en línea con frentes de roble, encimera clara y hornos en columna. Al fondo, una zona de office con ventanal a un patio con balaustrada.</p></div></div><div class="room"><div class="frame"><div class="shots"><button class="ph" type="button" data-g><img src="img/fuentes-3/escalera.jpg" alt="Escalera" loading="lazy"><figcaption>Escalera</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/distribuidor-curvo.jpg" alt="Distribuidor" loading="lazy"><figcaption>Distribuidor</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/estudio.jpg" alt="Estudio" loading="lazy"><figcaption>Estudio</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/barandilla-detalle.jpg" alt="Barandilla" loading="lazy"><figcaption>Barandilla</figcaption></button></div></div><div class="text"><span class="lbl kicker">Planta alta</span><h3>Escalera de piedra y barandilla curva</h3><p>La escalera sube a una planta alta luminosa, con techos curvos, librerías empotradas y una barandilla de roble que acompaña todo el recorrido.</p></div></div><div class="room flip"><div class="frame"><div class="shots"><button class="ph" type="button" data-g><img src="img/fuentes-3/vestidor.jpg" alt="Vestidor" loading="lazy"><figcaption>Vestidor</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/bano-principal.jpg" alt="Baño principal" loading="lazy"><figcaption>Baño principal</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/dormitorio-armarios.jpg" alt="Dormitorio" loading="lazy"><figcaption>Dormitorio</figcaption></button><button class="ph" type="button" data-g><img src="img/fuentes-3/bano.jpg" alt="Baño" loading="lazy"><figcaption>Baño</figcaption></button></div></div><div class="text"><span class="lbl kicker">Zona de noche</span><h3>Dos dormitorios con baño</h3><p>El dormitorio principal tiene vestidor de roble a medida y baño con doble lavabo y ducha. El segundo dormitorio, en la planta principal, también tiene baño propio.</p></div></div>
 </div></section>
@@ -360,7 +367,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <h3>Reservar una visita</h3>
 <p class="note">Se abre WhatsApp con tu mensaje ya escrito; solo tienes que enviarlo.</p>
 <form id="cita" novalidate>
-<label for="f-piso">Vivienda<select id="f-piso" name="piso"><option>Valverde 35, 3º izquierda</option><option>Valverde 35, 4º derecha</option><option selected>Fuentes 3, 2º D · Dúplex</option><option>Huertas 4, 1º C</option><option>Alcántara 6 (a la venta)</option><option>Francisco de Rojas 11 (en obra)</option></select></label>
+<label for="f-piso">Vivienda<select id="f-piso" name="piso"><option>Alcántara 6, Edificio modernista</option><option>Valverde 35, 3º izquierda</option><option>Valverde 35, 4º derecha</option><option selected>Fuentes 3, 2º D · Dúplex</option><option>Huertas 4, 1º C</option><option>Francisco de Rojas 11 (en obra)</option></select></label>
 <div class="row2">
 <label for="f-nombre">Nombre<input id="f-nombre" name="nombre" autocomplete="name" placeholder="Tu nombre"></label>
 <label for="f-tel">Teléfono<input id="f-tel" name="tel" type="tel" autocomplete="tel" placeholder="+34"></label>
@@ -373,13 +380,13 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 </div></section>
 <section id="viviendas"><div class="wrap">
 <div class="sec-head"><div><span class="lbl kicker">Cartera ADCO</span><h2>Otras <em>viviendas</em></h2></div><a class="more" href="index.html">Ver todas</a></div>
-<div class="mini"><a href="valverde-35-3-izq.html"><div class="im"><img src="img/valverde-35-3-izq/salon-balcones.jpg" alt="Valverde 35, 3º izquierda" loading="lazy"></div><span class="lbl">Malasaña</span><h3>Valverde 35 <em>3º izquierda</em></h3><p>2.900.000 €</p></a><a href="valverde-35-4-dcha.html"><div class="im"><img src="img/valverde-35-4-dcha/salon-balcones.jpg" alt="Valverde 35, 4º derecha" loading="lazy"></div><span class="lbl">Malasaña</span><h3>Valverde 35 <em>4º derecha</em></h3><p>1.900.000 €</p></a><a href="huertas-4.html"><div class="im"><img src="img/huertas-4/salon-comedor.jpg" alt="Huertas 4, 1º C" loading="lazy"></div><span class="lbl">Las Letras</span><h3>Huertas 4 <em>1º C</em></h3><p>890.000 €</p></a></div>
+<div class="mini"><a href="alcantara-6.html"><div class="im"><img src="img/alcantara-6/salon-libreria.jpg" alt="Alcántara 6, Edificio modernista" loading="lazy"></div><span class="lbl">Salamanca</span><h3>Alcántara 6 <em>Edificio modernista</em></h3><p>Precio a consultar</p></a><a href="valverde-35-3-izq.html"><div class="im"><img src="img/valverde-35-3-izq/salon-balcones.jpg" alt="Valverde 35, 3º izquierda" loading="lazy"></div><span class="lbl">Malasaña</span><h3>Valverde 35 <em>3º izquierda</em></h3><p>2.900.000 €</p></a><a href="valverde-35-4-dcha.html"><div class="im"><img src="img/valverde-35-4-dcha/salon-balcones.jpg" alt="Valverde 35, 4º derecha" loading="lazy"></div><span class="lbl">Malasaña</span><h3>Valverde 35 <em>4º derecha</em></h3><p>1.900.000 €</p></a><a href="huertas-4.html"><div class="im"><img src="img/huertas-4/salon-comedor.jpg" alt="Huertas 4, 1º C" loading="lazy"></div><span class="lbl">Las Letras</span><h3>Huertas 4 <em>1º C</em></h3><p>890.000 €</p></a></div>
 </div></section>
 <footer><div class="wrap">
 <div class="top">
 <img src="img/logo-adco-claro.png" alt="ADCO Investments" width="1020" height="450">
 <div class="cols">
-<div><span class="lbl">Viviendas</span><a href="valverde-35-3-izq.html">Valverde 35 · 3º izquierda</a><a href="valverde-35-4-dcha.html">Valverde 35 · 4º derecha</a><a href="fuentes-3.html">Fuentes 3 · 2º D</a><a href="huertas-4.html">Huertas 4 · 1º C</a></div>
+<div><span class="lbl">Viviendas</span><a href="alcantara-6.html">Alcántara 6 · Edificio modernista</a><a href="valverde-35-3-izq.html">Valverde 35 · 3º izquierda</a><a href="valverde-35-4-dcha.html">Valverde 35 · 4º derecha</a><a href="fuentes-3.html">Fuentes 3 · 2º D</a><a href="huertas-4.html">Huertas 4 · 1º C</a></div>
 <div><span class="lbl">Contacto</span><p>+34 617 795 058</p><p>andres@adco.es</p><p>Antonio Maura 20, 1º dcha. · 28014 Madrid</p></div>
 </div>
 </div>

@@ -97,7 +97,8 @@ section{padding-block:clamp(80px,11vw,150px)}
 
 /* Portada a sangre */
 .cover{position:relative;height:clamp(560px,92vh,940px);overflow:hidden;background:#0E1013;color:#F4F1EB}
-.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:drift 22s ease-out both}
+.cover>img,.cover>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover>img{animation:drift 22s ease-out both}
 @keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
 .cover::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,12,15,.55) 0%,rgba(10,12,15,0) 28%,rgba(10,12,15,0) 45%,rgba(10,12,15,.72) 100%)}
 .cover .in{position:absolute;inset:auto 0 0;z-index:2}
@@ -132,6 +133,11 @@ section{padding-block:clamp(80px,11vw,150px)}
 .intro .body p:first-child{font-family:var(--display);font-size:clamp(23px,2vw,28px);line-height:1.45;color:var(--ink);font-weight:400}
 .intro .body p+p{margin-top:22px}
 @media (max-width:860px){.intro{grid-template-columns:1fr}}
+
+/* Vídeo del recorrido */
+.tourbox{position:relative;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.tourbox::after{content:"";position:absolute;inset:-14px;border:1px solid var(--night-line);pointer-events:none}
+.tourbox video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
 
 /* Fotos con marco fino desplazado */
 .frame{position:relative}
@@ -326,6 +332,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <div><span class="lbl kicker">La vivienda</span><h2>Pequeño en metros, generoso en detalle</h2></div>
 <div class="body"><p>Huertas 4 es un piso de 91 m² en el Barrio de las Letras, a unos pasos de la Plaza de Santa Ana. La reforma ha unido salón y comedor en un solo espacio con suelo de roble en espiga y luz de balcón.</p><p>La cocina y los dormitorios van revestidos en roble, y los dos baños combinan azulejo verde salvia con perfilería negra.</p></div>
 </div></section>
+
 <section class="stone" id="estancias"><div class="wrap">
 <div class="room"><div class="frame"><div class="shots lead3"><button class="ph" type="button" data-g><img src="img/huertas-4/comedor-balcon.jpg" alt="Comedor" loading="lazy"><figcaption>Comedor</figcaption></button><button class="ph" type="button" data-g><img src="img/huertas-4/salon.jpg" alt="Salón" loading="lazy"><figcaption>Salón</figcaption></button><button class="ph" type="button" data-g><img src="img/huertas-4/escritorio.jpg" alt="Rincón de trabajo" loading="lazy"><figcaption>Rincón de trabajo</figcaption></button></div></div><div class="text"><span class="lbl kicker">Zona de día</span><h3>Salón y comedor en un solo espacio</h3><p>Un espacio continuo con suelo en espiga, techos con luz empotrada y un ventanal con balcón de forja junto a la mesa del comedor. La cocina se abre a través de un marco de roble.</p></div></div><div class="room flip"><div class="frame"><div class="shots"><button class="ph" type="button" data-g><img src="img/huertas-4/cocina.jpg" alt="Cocina" loading="lazy"><figcaption>Cocina</figcaption></button><button class="ph" type="button" data-g><img src="img/huertas-4/mesa.jpg" alt="Vista a la cocina" loading="lazy"><figcaption>Vista a la cocina</figcaption></button></div></div><div class="text"><span class="lbl kicker">Cocina</span><h3>Toda en roble</h3><p>Cocina en U revestida de roble, con horno en columna, encimera clara y baldas iluminadas sobre el fregadero.</p></div></div><div class="room"><div class="frame"><div class="shots"><button class="ph" type="button" data-g><img src="img/huertas-4/dormitorio-principal.jpg" alt="Dormitorio principal" loading="lazy"><figcaption>Dormitorio principal</figcaption></button><button class="ph" type="button" data-g><img src="img/huertas-4/dormitorio.jpg" alt="Dormitorio" loading="lazy"><figcaption>Dormitorio</figcaption></button><button class="ph" type="button" data-g><img src="img/huertas-4/bano.jpg" alt="Baño" loading="lazy"><figcaption>Baño</figcaption></button><button class="ph" type="button" data-g><img src="img/huertas-4/ducha.jpg" alt="Ducha" loading="lazy"><figcaption>Ducha</figcaption></button></div></div><div class="text"><span class="lbl kicker">Zona de noche</span><h3>Dos dormitorios y dos baños</h3><p>El dormitorio principal tiene armarios altos de roble con luz indirecta sobre el cabecero. Los baños, en azulejo verde salvia, llevan mampara negra y ducha de lluvia.</p></div></div>
 </div></section>
@@ -359,7 +366,7 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 <h3>Reservar una visita</h3>
 <p class="note">Se abre WhatsApp con tu mensaje ya escrito; solo tienes que enviarlo.</p>
 <form id="cita" novalidate>
-<label for="f-piso">Vivienda<select id="f-piso" name="piso"><option>Valverde 35, 3º izquierda</option><option>Valverde 35, 4º derecha</option><option>Fuentes 3, 2º D · Dúplex</option><option selected>Huertas 4, 1º C</option><option>Alcántara 6 (a la venta)</option><option>Francisco de Rojas 11 (en obra)</option></select></label>
+<label for="f-piso">Vivienda<select id="f-piso" name="piso"><option>Alcántara 6, Edificio modernista</option><option>Valverde 35, 3º izquierda</option><option>Valverde 35, 4º derecha</option><option>Fuentes 3, 2º D · Dúplex</option><option selected>Huertas 4, 1º C</option><option>Francisco de Rojas 11 (en obra)</option></select></label>
 <div class="row2">
 <label for="f-nombre">Nombre<input id="f-nombre" name="nombre" autocomplete="name" placeholder="Tu nombre"></label>
 <label for="f-tel">Teléfono<input id="f-tel" name="tel" type="tel" autocomplete="tel" placeholder="+34"></label>
@@ -372,13 +379,13 @@ dialog .pv{left:env(safe-area-inset-left,0px)} dialog .nx{right:env(safe-area-in
 </div></section>
 <section id="viviendas"><div class="wrap">
 <div class="sec-head"><div><span class="lbl kicker">Cartera ADCO</span><h2>Otras <em>viviendas</em></h2></div><a class="more" href="index.html">Ver todas</a></div>
-<div class="mini"><a href="valverde-35-3-izq.html"><div class="im"><img src="img/valverde-35-3-izq/salon-balcones.jpg" alt="Valverde 35, 3º izquierda" loading="lazy"></div><span class="lbl">Malasaña</span><h3>Valverde 35 <em>3º izquierda</em></h3><p>2.900.000 €</p></a><a href="valverde-35-4-dcha.html"><div class="im"><img src="img/valverde-35-4-dcha/salon-balcones.jpg" alt="Valverde 35, 4º derecha" loading="lazy"></div><span class="lbl">Malasaña</span><h3>Valverde 35 <em>4º derecha</em></h3><p>1.900.000 €</p></a><a href="fuentes-3.html"><div class="im"><img src="img/fuentes-3/salon-balcones.jpg" alt="Fuentes 3, 2º D · Dúplex" loading="lazy"></div><span class="lbl">Palacio</span><h3>Fuentes 3 <em>2º D · Dúplex</em></h3><p>1.590.000 €</p></a></div>
+<div class="mini"><a href="alcantara-6.html"><div class="im"><img src="img/alcantara-6/salon-libreria.jpg" alt="Alcántara 6, Edificio modernista" loading="lazy"></div><span class="lbl">Salamanca</span><h3>Alcántara 6 <em>Edificio modernista</em></h3><p>Precio a consultar</p></a><a href="valverde-35-3-izq.html"><div class="im"><img src="img/valverde-35-3-izq/salon-balcones.jpg" alt="Valverde 35, 3º izquierda" loading="lazy"></div><span class="lbl">Malasaña</span><h3>Valverde 35 <em>3º izquierda</em></h3><p>2.900.000 €</p></a><a href="valverde-35-4-dcha.html"><div class="im"><img src="img/valverde-35-4-dcha/salon-balcones.jpg" alt="Valverde 35, 4º derecha" loading="lazy"></div><span class="lbl">Malasaña</span><h3>Valverde 35 <em>4º derecha</em></h3><p>1.900.000 €</p></a><a href="fuentes-3.html"><div class="im"><img src="img/fuentes-3/salon-balcones.jpg" alt="Fuentes 3, 2º D · Dúplex" loading="lazy"></div><span class="lbl">Palacio</span><h3>Fuentes 3 <em>2º D · Dúplex</em></h3><p>1.590.000 €</p></a></div>
 </div></section>
 <footer><div class="wrap">
 <div class="top">
 <img src="img/logo-adco-claro.png" alt="ADCO Investments" width="1020" height="450">
 <div class="cols">
-<div><span class="lbl">Viviendas</span><a href="valverde-35-3-izq.html">Valverde 35 · 3º izquierda</a><a href="valverde-35-4-dcha.html">Valverde 35 · 4º derecha</a><a href="fuentes-3.html">Fuentes 3 · 2º D</a><a href="huertas-4.html">Huertas 4 · 1º C</a></div>
+<div><span class="lbl">Viviendas</span><a href="alcantara-6.html">Alcántara 6 · Edificio modernista</a><a href="valverde-35-3-izq.html">Valverde 35 · 3º izquierda</a><a href="valverde-35-4-dcha.html">Valverde 35 · 4º derecha</a><a href="fuentes-3.html">Fuentes 3 · 2º D</a><a href="huertas-4.html">Huertas 4 · 1º C</a></div>
 <div><span class="lbl">Contacto</span><p>+34 617 795 058</p><p>andres@adco.es</p><p>Antonio Maura 20, 1º dcha. · 28014 Madrid</p></div>
 </div>
 </div>
