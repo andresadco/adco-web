@@ -172,6 +172,9 @@ section{padding-block:clamp(80px,11vw,150px)}
 .band blockquote{margin:0;max-width:22ch;font-family:var(--display);font-weight:300;font-style:italic;font-size:clamp(34px,4.6vw,66px);line-height:1.12;text-wrap:balance}
 .band .rings{margin-bottom:28px;color:#F4F1EB}
 
+.band-plain{min-height:0;padding-block:clamp(90px,12vw,170px);background:var(--wine-bg)}
+.band-plain::before{display:none}
+
 /* Características en franja oscura */
 .feats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--night-line)}
 .feats li{padding:28px 24px 28px 0;border-bottom:1px solid var(--night-line);font-family:var(--display);font-size:23px;line-height:1.25;color:var(--night-ink)}
